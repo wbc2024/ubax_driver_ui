@@ -1,0 +1,1 @@
+ /Users/raihan/Desktop/Projects/ubax_driver_ui/.dart_tool/flutter_build/2a4c6a303def4d56ab3cb90482171d22/native_assets.yaml: 
