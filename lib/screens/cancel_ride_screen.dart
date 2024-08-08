@@ -199,14 +199,10 @@ class _CancelRideScreenState extends State<CancelRideScreen> {
               child: Stack(
                 children: [
                   AlertDialog(
-                      content: Stack(
-                    //overflow: Overflow.visible,
-                    children: [
-                      Positioned(
-                        top: -60,
-                        left: 0,
-                        right: 0,
-                        child: Container(
+                      content: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: Align(
                             alignment: Alignment.center,
@@ -218,14 +214,8 @@ class _CancelRideScreenState extends State<CancelRideScreen> {
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 45,
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.5,
+                        SizedBox(
+                          //height: MediaQuery.of(context).size.height * 0.5,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -311,15 +301,13 @@ class _CancelRideScreenState extends State<CancelRideScreen> {
                             ],
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        child: Container(
+                        Container(
                           width: MediaQuery.of(context).size.width,
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
                                   child: Container(
@@ -378,8 +366,199 @@ class _CancelRideScreenState extends State<CancelRideScreen> {
                             ),
                           ),
                         ),
-                      )
-                    ],
+                        /*       
+                        Stack(
+                          //overflow: Overflow.visible,
+                          children: [
+                            Positioned(
+                              top: -60,
+                              left: 0,
+                              right: 0,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Image.asset(
+                                    'assets/user.png',
+                                    height: 80.0,
+                                    width: 80.0,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              bottom: 45,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.5,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: Dimensions.heightSize * 2,
+                                    ),
+                                    Text(
+                                      '30 min',
+                                      style: GoogleFonts.roboto(
+                                          color: CustomColor.primaryColor,
+                                          fontSize: Dimensions.largeTextSize,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(height: Dimensions.heightSize),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          '\$130',
+                                          // style: CustomStyle.textStyle,
+                                        ),
+                                        Text(
+                                          '5.5 km',
+                                          // style: CustomStyle.textStyle,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              color: CustomColor.primaryColor,
+                                            ),
+                                            Text(
+                                              '4.9',
+                                              // style: CustomStyle.textStyle,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: Dimensions.heightSize),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          FontAwesomeIcons.directions,
+                                          color: CustomColor.primaryColor,
+                                        ),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            'Park road London 5487',
+                                            // style: CustomStyle.textStyle,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: Dimensions.heightSize),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          FontAwesomeIcons.directions,
+                                          color: CustomColor.primaryColor,
+                                        ),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            'Washion town emplace road',
+                                            // style: CustomStyle.textStyle,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      GestureDetector(
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                              color: CustomColor.primaryColor,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(5.0))),
+                                          child: Center(
+                                            child: Text(
+                                              Strings.yesCancel.toUpperCase(),
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontSize: Dimensions
+                                                      .defaultTextSize,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                        onTap: () {
+                                          print('opne Dash board screen');
+                                          // Navigator.of(context).pushReplacement(
+                                          //     MaterialPageRoute(
+                                          //         builder: (context) =>
+                                          //             DashboardScreen()));
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                      GestureDetector(
+                                        child: Container(
+                                          height: 35.0,
+                                          width: 100.0,
+                                          decoration: BoxDecoration(
+                                              color: CustomColor.accentColor,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(5.0))),
+                                          child: Center(
+                                            child: Text(
+                                              Strings.no.toUpperCase(),
+                                              style: GoogleFonts.roboto(
+                                                  color: Colors.white,
+                                                  fontSize: Dimensions
+                                                      .defaultTextSize,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        */
+                      ],
+                    ),
                   )),
                 ],
               ),
