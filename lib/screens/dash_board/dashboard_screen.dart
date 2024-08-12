@@ -116,166 +116,152 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 200.0,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(Dimensions.radius * 3),
-                              topRight:
-                                  Radius.circular(Dimensions.radius * 3))),
-                      child: Stack(
-                        //overflow: Overflow.visible,
-                        fit: StackFit.expand,
-                        children: [
-                          Positioned(
-                            top: -35,
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width,
-                              height: 200.0,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  GestureDetector(
-                                    child: Container(
-                                      height: 70,
-                                      width: 70,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          border: Border.all(
-                                              color: isAction
-                                                  ? Colors.green
-                                                  : Colors.red,
-                                              width: 4),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(35.0))),
-                                      child: Center(
-                                        child: Text(
-                                          isAction
-                                              ? Strings.go.toUpperCase()
-                                              : Strings.stop.toUpperCase(),
-                                          style: GoogleFonts.roboto(
-                                              fontSize:
-                                                  Dimensions.extraLargeTextSize,
-                                              color: isAction
-                                                  ? Colors.green
-                                                  : Colors.red,
-                                              fontWeight: FontWeight.bold),
-                                        ),
+                    Positioned(
+                      top: -35,
+                      child: Container(
+                        height: 200.0,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(Dimensions.radius * 3),
+                                topRight:
+                                    Radius.circular(Dimensions.radius * 3))),
+                        child: SingleChildScrollView(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 200.0,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                GestureDetector(
+                                  child: Container(
+                                    height: 70,
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(
+                                            color: isAction
+                                                ? Colors.green
+                                                : Colors.red,
+                                            width: 4),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(35.0))),
+                                    child: Center(
+                                      child: Text(
+                                        isAction
+                                            ? Strings.go.toUpperCase()
+                                            : Strings.stop.toUpperCase(),
+                                        style: GoogleFonts.roboto(
+                                            fontSize:
+                                                Dimensions.extraLargeTextSize,
+                                            color: isAction
+                                                ? Colors.green
+                                                : Colors.red,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    onTap: () {
-                                      setState(() {
-                                        isAction = !isAction;
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      isAction = !isAction;
 
-                                        print(isAction.toString());
-                                      });
-                                    },
+                                      print(isAction.toString());
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  isAction
+                                      ? '${Strings.your} ${Strings.offline}'
+                                      : '${Strings.your} ${Strings.online}',
+                                  style: GoogleFonts.roboto(
+                                      fontSize: Dimensions.extraLargeTextSize,
+                                      color: CustomColor.primaryColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: Dimensions.marginSize,
+                                      right: Dimensions.marginSize),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Image.asset('assets/success.png'),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            '78.0%',
+                                            style: GoogleFonts.roboto(
+                                                fontSize: Dimensions
+                                                    .extraLargeTextSize,
+                                                color: CustomColor.primaryColor,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            Strings.acceptance,
+                                            style: CustomStyle.textStyle,
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Image.asset('assets/star.png'),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            '4.75',
+                                            style: GoogleFonts.roboto(
+                                                fontSize: Dimensions
+                                                    .extraLargeTextSize,
+                                                color: CustomColor.primaryColor,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            Strings.rating,
+                                            style: CustomStyle.textStyle,
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Image.asset('assets/decline.png'),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            '2.0%',
+                                            style: GoogleFonts.roboto(
+                                                fontSize: Dimensions
+                                                    .extraLargeTextSize,
+                                                color: CustomColor.primaryColor,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            height: Dimensions.heightSize * 0.5,
+                                          ),
+                                          Text(
+                                            Strings.cancellation,
+                                            style: CustomStyle.textStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    isAction
-                                        ? '${Strings.your} ${Strings.offline}'
-                                        : '${Strings.your} ${Strings.online}',
-                                    style: GoogleFonts.roboto(
-                                        fontSize: Dimensions.extraLargeTextSize,
-                                        color: CustomColor.primaryColor,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: Dimensions.marginSize,
-                                        right: Dimensions.marginSize),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Image.asset('assets/success.png'),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              '78.0%',
-                                              style: GoogleFonts.roboto(
-                                                  fontSize: Dimensions
-                                                      .extraLargeTextSize,
-                                                  color:
-                                                      CustomColor.primaryColor,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              Strings.acceptance,
-                                              style: CustomStyle.textStyle,
-                                            ),
-                                          ],
-                                        ),
-                                        Column(
-                                          children: [
-                                            Image.asset('assets/star.png'),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              '4.75',
-                                              style: GoogleFonts.roboto(
-                                                  fontSize: Dimensions
-                                                      .extraLargeTextSize,
-                                                  color:
-                                                      CustomColor.primaryColor,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              Strings.rating,
-                                              style: CustomStyle.textStyle,
-                                            ),
-                                          ],
-                                        ),
-                                        Column(
-                                          children: [
-                                            Image.asset('assets/decline.png'),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              '2.0%',
-                                              style: GoogleFonts.roboto(
-                                                  fontSize: Dimensions
-                                                      .extraLargeTextSize,
-                                                  color:
-                                                      CustomColor.primaryColor,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  Dimensions.heightSize * 0.5,
-                                            ),
-                                            Text(
-                                              Strings.cancellation,
-                                              style: CustomStyle.textStyle,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
+                                )
+                              ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
